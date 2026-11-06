@@ -23,7 +23,7 @@ def predict(text):
 
 
 # Load model as a PyFuncModel.
-loaded_model = mlflow.pyfunc.load_model('model')
+loaded_model = mlflow.pyfunc.load_model('model_new')
 app = FastAPI()
 
 @app.post("/predict")
