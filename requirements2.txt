@@ -1,0 +1,9 @@
+mlflow-skinny
+scikit-learn
+pandas
+cloudpickle
+fastapi
+uvicorn
+click
+pytest
+pylint
