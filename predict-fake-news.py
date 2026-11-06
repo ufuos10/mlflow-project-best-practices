@@ -5,8 +5,8 @@ import requests
 import pandas as pd
 
 my_data = {
-    "text": {"aliens are coming to invade earth"},
-}
+    "text": ["aliens are coming to invade earth"]
+    }
 df = pd.DataFrame(data=my_data)
 
 def create_tf_serving_json(data):
@@ -24,11 +24,8 @@ def score_model(dataset):
         if isinstance(dataset, pd.DataFrame)
         else create_tf_serving_json(dataset)
     )
-    response = requests.request(method="POST", headers=headers, url=url, json=data_json)
-    if response.status_code != 200:
-        raise Exception(
-            f"Request failed with status {response.status_code}, {response.text}"
-        )
+    response = requests.post(url, headers=headers, json=data_json, timeout=10)
+    response.raise_for_status()
     return response.json()
 
 
