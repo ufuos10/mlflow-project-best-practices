@@ -16,7 +16,7 @@ def predict(text):
     }
     data = pd.DataFrame(data=my_data)
     # Load model as a PyFuncModel.
-    loaded_model = mlflow.pyfunc.load_model('model')
+    loaded_model = mlflow.pyfunc.load_model('model_new')
     result = loaded_model.predict(pd.DataFrame(data))
     return human_readable(result)
 
